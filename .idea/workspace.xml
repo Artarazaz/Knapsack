@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f1136f40-7cd4-4d3f-88d6-6505083c8eae" name="Changes" comment="just started">
+    <list default="true" id="f1136f40-7cd4-4d3f-88d6-6505083c8eae" name="Changes" comment="method for store items and values add">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/bag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bag.java" afterDir="false" />
     </list>
@@ -65,7 +65,14 @@
       <option name="project" value="LOCAL" />
       <updated>1715087225740</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="method for store items and values add">
+      <created>1715596254909</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1715596254909</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -81,6 +88,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="just started" />
-    <option name="LAST_COMMIT_MESSAGE" value="just started" />
+    <MESSAGE value="method for store items and values add" />
+    <option name="LAST_COMMIT_MESSAGE" value="method for store items and values add" />
   </component>
 </project>
