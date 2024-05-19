@@ -11,18 +11,25 @@ public class bag {
         int items = scanner.nextInt();
         String[] itemsArr = new String[items];
         int[] valueArr = new int[items];
+        float[] weightArr = new float[items];
         for (int i = 0; i < items; i++) {
             System.out.println("Please enter items no. " + (i + 1));
             itemsArr[i] = scanner.next();
         }
-        scanner.nextLine();
+
         for (int i = 0; i < items; i++) {
-            System.out.println("Please enter a value for " + itemsArr[i]);
+            System.out.println("Please enter a value and weight for " + itemsArr[i]);
             valueArr[i] = scanner.nextInt();
+            weightArr[i] = scanner.nextInt();
         }
+        for (int i = 0; i < valueArr.length; i++){
+            float checker = valueArr[i] / weightArr[i];
+            weightArr[i] = checker;
+        }
+
         for (int j = 0; j < valueArr.length - 1; j++) {
             for (int i = 0; i < valueArr.length - 1; i++) {
-                if (valueArr[i] < valueArr[i + 1]) {
+                if (valueArr[i] < valueArr[i + 1] && weightArr[i] < weightArr[i+1]) {
                     int saver = valueArr[i];
                     valueArr[i] = valueArr[i + 1];
                     valueArr[i + 1] = saver;
@@ -32,7 +39,6 @@ public class bag {
                 }
             }
         }
-
         int i = 0;
         int itemsCounter = 0;
         List<String> chosenItem = new ArrayList<>();
@@ -56,9 +62,11 @@ public class bag {
                 break;
             }
         }
-        System.out.println("The perfect number of items for fill the bag with highest value:");
-        for (int j = 0; j < chosenItem.size(); j++){
-            System.out.println("   " + chosenItemCounter.get(j) + " of " + chosenItem.get(j));
+        System.out.println("The perfect number of items for fill the bag with");
+        System.out.println("highest value and lowest weight:");
+        for (int j = 0; j < chosenItem.size(); j++) {
+        System.out.println("   " + chosenItemCounter.get(j)
+                + " of " + chosenItem.get(j));
         }
     }
 }
