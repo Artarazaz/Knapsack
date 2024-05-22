@@ -11,7 +11,7 @@ public class bag {
         int items = scanner.nextInt();
         String[] itemsArr = new String[items];
         int[] valueArr = new int[items];
-        float[] weightArr = new float[items];
+        int[] weightArr = new int[items];
         for (int i = 0; i < items; i++) {
             System.out.println("Please enter items no. " + (i + 1));
             itemsArr[i] = scanner.next();
@@ -22,17 +22,22 @@ public class bag {
             valueArr[i] = scanner.nextInt();
             weightArr[i] = scanner.nextInt();
         }
-        for (int i = 0; i < valueArr.length; i++){
-            float checker = valueArr[i] / weightArr[i];
-            weightArr[i] = checker;
+        double[] valueToWeight = new double[items];
+        for (int i = 0; i < valueArr.length; i++) {
+            valueToWeight[i] = (double) valueArr[i] / weightArr[i];
         }
-
-        for (int j = 0; j < valueArr.length - 1; j++) {
+        for (int j = 0; j < valueArr.length; j++) {
             for (int i = 0; i < valueArr.length - 1; i++) {
-                if (valueArr[i] < valueArr[i + 1] && weightArr[i] < weightArr[i+1]) {
+                if (valueToWeight[i] < valueToWeight[i + 1]) {
                     int saver = valueArr[i];
                     valueArr[i] = valueArr[i + 1];
                     valueArr[i + 1] = saver;
+                    int saver2 = weightArr[i];
+                    weightArr[i] = weightArr[i + 1];
+                    weightArr[i + 1] = saver2;
+                    double saver1 = valueToWeight[i];
+                    valueToWeight[i] = valueToWeight[i + 1];
+                    valueToWeight[i + 1] = saver1;
                     String string = itemsArr[i];
                     itemsArr[i] = itemsArr[i + 1];
                     itemsArr[i + 1] = string;
@@ -44,29 +49,29 @@ public class bag {
         List<String> chosenItem = new ArrayList<>();
         List<Integer> chosenItemCounter = new ArrayList<>();
         while (bagSize != 0) {
-            if (bagSize >= valueArr[i]) {
+            if (bagSize >= weightArr[i]) {
                 itemsCounter++;
-                bagSize = bagSize - valueArr[i];
+                bagSize = bagSize - weightArr[i];
                 if (!chosenItem.contains(itemsArr[i])) {
                     chosenItem.add(itemsArr[i]);
                 }
             }
-            if (bagSize < valueArr[i]) {
+            if (bagSize < weightArr[i]) {
                 if (itemsCounter != 0) {
                     chosenItemCounter.add(itemsCounter);
                 }
                 i++;
                 itemsCounter = 0;
             }
-            if (i == valueArr.length) {
+            if (i == weightArr.length) {
                 break;
             }
         }
         System.out.println("The perfect number of items for fill the bag with");
         System.out.println("highest value and lowest weight:");
         for (int j = 0; j < chosenItem.size(); j++) {
-        System.out.println("   " + chosenItemCounter.get(j)
-                + " of " + chosenItem.get(j));
+            System.out.println("   " + chosenItemCounter.get(j)
+                    + " of " + chosenItem.get(j));
         }
     }
 }
